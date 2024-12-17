@@ -3,6 +3,11 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index),
-    path('<int:pk>/', views.single_post_page)
+    # FBV 방식의 패턴
+    # path('', views.index),
+    # path('<int:pk>/', views.single_post_page)
+
+    # CBV 방식의 패턴
+    path("", views.PostList.as_view()),
+
 ]
