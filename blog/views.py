@@ -1,5 +1,6 @@
+from PIL.ImageFilter import DETAIL
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from .models import Post
 
 # Create your views here.
@@ -11,8 +12,12 @@ class PostList(ListView):
     model = Post
     ordering = "-pk"
     # Listview 사용방법으로써, 기존에 사용하던 파일명 변경하기 싫을 때, 지정해준다.
+    # app이름/모델명_list.html 구조여야한다.
     # template_name = "blog/post_list.html"
 
+class PostDetail(DeleteView):
+    model = Post
+    template_name = "blog/post_detail.html"
 
 # FBV 스타일
 """
@@ -30,7 +35,7 @@ def single_post_page(request, pk):
     post = Post.objects.get(pk=pk)
 
     return render(
-        request, "blog/single_post_page.html",
+        request, "blog/post_detail.html",
         {
             'post':post
         }

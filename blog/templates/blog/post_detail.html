@@ -6,19 +6,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    {% for p in post_list %}
     <!-- "post"는 views.py에서 정의된 값-->
-    <title>{{post.title}}</title>
+    <title>{{p.title}}</title>
 </head>
 <body>
 
     <nav>
         <a href="/blog/">Blog</a>
     </nav>
-    <h1>{{post.title}}</h1>
-    <h4>{{post.create_at}}</h4>
-    <p>{{post.content}}</p>
+    <h1>{{p.title}}</h1>
+    <h4>{{p.create_at}}</h4>
+    <p>{{p.content}}</p>
     <hr>
-
+    {% endfor %}
     <h3>댓글자리</h3>
 </body>
 </html>
