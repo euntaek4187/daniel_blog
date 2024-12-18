@@ -18,7 +18,10 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     # CASCADE는 해당 작성자가 데이터베이스에서 삭제되면, 그 작성자가 작성한 포스트도 함께 삭제한다.
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    # author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # SET_NULL은 해당 작성자가 데이터베이스에서 삭제되면, 그 작성자가 작성한 포스트 작성자 명은 공란이 된다.
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     # f-string 기법
     def __str__(self):
