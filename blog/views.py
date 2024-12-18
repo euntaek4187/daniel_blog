@@ -1,7 +1,7 @@
 from PIL.ImageFilter import DETAIL
 from django.shortcuts import render
 from django.views.generic import ListView, DeleteView
-from .models import Post
+from .models import Post, Category
 
 # Create your views here.
 
@@ -14,6 +14,12 @@ class PostList(ListView):
     # Listview 사용방법으로써, 기존에 사용하던 파일명 변경하기 싫을 때, 지정해준다.
     # app이름/모델명_list.html 구조여야한다.
     template_name = "blog/post_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        return context
 
 class PostDetail(DeleteView):
     model = Post
