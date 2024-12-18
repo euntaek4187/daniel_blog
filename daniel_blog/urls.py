@@ -18,6 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     # 여기서 말하는 blog는 app단위다. 즉, app blog에 있는 urls를 읽어온다는 뜻
@@ -26,3 +29,5 @@ urlpatterns = [
     path('', include("single_pages.urls"))
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
