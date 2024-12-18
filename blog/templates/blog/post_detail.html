@@ -121,18 +121,17 @@
                             <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
 
                             <!-- Author -->
-                            <p class="lead">
-                                by <a href="#">작성자명</a>
-                            </p>
+                            <p class="lead">by <a href="#">작성자명</a></p>
                             <hr>
-
                             <!-- Date/Time -->
-                            <p>
-                                {{ post.created_at }}
-                            </p>
+                            <p>{{ post.created_at }}</p>
                             <hr>
-
-                            <img src="{{ post.head_image.url }}" class="img-fluid rounded" alt="">
+                            <!-- Preview Image -->
+                            {% if post.head_image %}
+                            <img src="{{ post.head_image.url }}" class="img-fluid rounded" alt="{{ post.title }} head_image">
+                            {% else %}
+                            <img src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
+                            {% endif %}
                             <hr>
 
                             <!-- post Content -->
