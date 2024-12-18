@@ -69,6 +69,7 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
             return response
 
+
             # return super(PostCreate, self).form_valid(form)
         else:
             return redirect("/blog/")

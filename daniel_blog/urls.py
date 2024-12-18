@@ -26,8 +26,8 @@ urlpatterns = [
     # 여기서 말하는 blog는 app단위다. 즉, app blog에 있는 urls를 읽어온다는 뜻
     path("blog/", include("blog.urls")),
     # 여기서 말하는 single_pages는 app단위다. 즉, app single_pages에 있는 urls를 읽어온다는 뜻
-    path('', include("single_pages.urls"))
-
+    path('', include("single_pages.urls")),
+    path("markdownx/", include("markdownx.urls"))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
