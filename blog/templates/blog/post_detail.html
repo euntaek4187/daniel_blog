@@ -8,8 +8,8 @@
 
     <div id="post-area">
         <!-- category -->
-        {% if p.category %}
-            <span class="badge badge-secondary float-right">{{ p.category }}</span>
+        {% if post.category %}
+            <span class="badge badge-secondary float-right">{{ post.category }}</span>
         {% else %}
             <span class="badge badge-secondary float-right">미분류</span>
         {% endif %}
@@ -18,7 +18,7 @@
         <h5 class="text-muted">{{ post.hook_text }}</h5>
 
         <!-- Author -->
-        <p class="lead">by <a href="#">작성자명</a></p>
+        <p class="lead">by <a href="#">{{ post.author }}</a></p>
         <hr>
         <!-- Date/Time -->
         <p>{{ post.created_at }}</p>

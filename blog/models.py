@@ -53,8 +53,8 @@ class Post(models.Model):
         return f"[{self.pk}] {self.title} :: {self.author}"
 
     # admin 단에서 보여지는 Category 복수형의 이름을 수정해주는 것
-    class Meta:
-        verbose_name_plural = "Categories"
+    # class Meta:
+    #     verbose_name_plural = "Categories"
 
     def get_absolute_url(self):
         return f'/blog/{self.pk}/'
