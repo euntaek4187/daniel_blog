@@ -28,6 +28,7 @@ class PostList(ListView):
 
 class PostDetail(DeleteView):
     model = Post
+    template_name = "blog/post_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super(PostDetail, self).get_context_data()
@@ -35,11 +36,12 @@ class PostDetail(DeleteView):
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
 
-    template_name = "blog/post_detail.html"
+
 
 class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Post
     fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
+    # template_name = "blog/post_form.html"
 
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.is_staff
