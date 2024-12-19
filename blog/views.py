@@ -18,6 +18,8 @@ from .forms import CommentForm
 class PostList(ListView):
     model = Post
     ordering = "-pk"
+    # 한 페이지에 3개의 글만 보이게 해달라는 의미
+    paginate_by = 3
     # Listview 사용방법으로써, 기존에 사용하던 파일명 변경하기 싫을 때, 지정해준다.
     # app이름/모델명_list.html 구조여야한다.
     template_name = "blog/post_list.html"
