@@ -3,6 +3,7 @@
 {% block main_area %}
 
     <!-- Blog post 쓰기 버튼   -->
+    <!-- admin이나 staff 부여받은 사람만 글쓰기 가능   -->
     {% if user.is_authenticated %}
         {% if user.is_superuser or user.is_staff %}
             <a class="btn btn-info btn-sm float-right" href="/blog/create_post/" role="button">

@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block head_title %}
-{{ post.title }} - Blog
+    {{ post.title }} - Blog
 {% endblock %}
 
 {% block main_area %}
@@ -10,9 +10,9 @@
 <div id="post-area">
     <!-- category -->
     {% if post.category %}
-    <span class="badge badge-secondary float-right">{{ post.category }}</span>
+        <span class="badge badge-secondary float-right">{{ post.category }}</span>
     {% else %}
-    <span class="badge badge-secondary float-right">미분류</span>
+        <span class="badge badge-secondary float-right">미분류</span>
     {% endif %}
     <!-- Post title-->
     <h1 class="mt-4">{{ post.title }}</h1>
@@ -151,6 +151,5 @@
         </div>
         <hr>
     </div>
-</div>
 </div>
 {% endblock %}
