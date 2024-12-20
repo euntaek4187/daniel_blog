@@ -7,7 +7,7 @@ from django.utils.text import slugify
 from django.db.models import Q
 
 
-from .models import Post, Category, Tag, Comment
+from .models import Post, Category, Tag, Comment, Contact
 from .forms import CommentForm
 
 
@@ -214,6 +214,14 @@ def delete_comment(request, pk):
         return redirect(post.get_absolute_url())
     else:
         raise PermissionDenied
+
+
+def contact(request):
+    return render(
+
+        request, "blog/contact.html",
+
+    )
 """
 def index(request):
     posts = Post.objects.all().order_by("-pk")

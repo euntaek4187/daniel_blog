@@ -92,3 +92,9 @@ class Comment(models.Model):
             return self.author.socialaccount_set.first().get_avatar_url()
         else:
             return f"https://doitdjango.com/avatar/id/1408/e7e3581c91812561/svg/{self.author.email}"
+
+class Contact(models.Model):
+    name = models.CharField(max_length=40)
+    email = models.CharField(max_length=70)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
