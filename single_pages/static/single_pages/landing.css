@@ -1,10 +1,11 @@
 body {
-    background-color: rgba(0,0,0,0);
+    background-image: url('C:\Users\danie\Desktop\django_blog\github\daniel_blog\single_pages\static\single_pages\images\chalenge.png');
     center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    color: black;
 }
 
 section {
