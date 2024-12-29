@@ -114,7 +114,7 @@ DATABASES = {
         'NAME': os.environ.get("daniel_blog_db"),
         'USER': os.environ.get('daniel_blog_user'),
         'PASSWORD': os.environ.get('daniel_blog_password'),
-        'HOST': os.environ.get("POSTGRES_HOST",'db'), # Docker Compose 서비스 이름과 일치해야 함
+        'HOST': os.environ.get('db'), # Docker Compose 서비스 이름과 일치해야 함
         'PORT': os.environ.get("POSTGRES_PORT", '5432')
         }
     }
