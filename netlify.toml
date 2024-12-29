@@ -1,0 +1,6 @@
+[build]
+  command = "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+  publish = "build"  # 빌드 결과물 디렉토리 (필요에 따라 수정)
+
+[build.environment]
+  SYSTEM_LIBRARIES = "yes"

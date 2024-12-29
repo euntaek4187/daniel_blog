@@ -1,0 +1,21 @@
+body {
+    center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    color: #000000 !important;
+}
+
+section {
+    margin-bottom: 150px;
+    color: black;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+section {
+    background-color: #000000 !important; /* 섹션 배경색 변경 */
+}
