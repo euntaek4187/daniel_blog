@@ -1,6 +1,7 @@
 [build]
   command = "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput && npm run build"
   publish = "build"
+  cache = ["~/.cache/pip", "~/.npm"]
 
 [context.production.environment]
   PYTHON_VERSION = "3.10"
