@@ -29,12 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY","django-insecure-88ndzs0z0uzko4x5f=*ngu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "1").lower() in ("true", "1", "yes")
 
-if os.environ.get("DJANGO_ALLOWED_HOSTS"):
-    ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(' ')
-else:
-    ALLOWED_HOSTS = []
-
-ALLOWED_HOSTS = ['danielblogbla.netlify.app', 'daniel4191.com']
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() if os.environ.get("DJANGO_ALLOWED_HOSTS") else ['danielblogbla.netlify.app', 'daniel4191.com', "localhost", "127.0.0.1"]
 
 # Application definition
 
