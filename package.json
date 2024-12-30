@@ -4,7 +4,8 @@
   "description": "daniel's blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput && npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,6 @@
   },
   "homepage": "https://github.com/daniel4191/daniel_blog#readme",
   "devDependencies": {
-    "@netlify/plugin-linux-setup": "^1.0.0"
+    "netlify-cli": "^10.0.0"
   }
 }
