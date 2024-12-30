@@ -1,0 +1,23 @@
+{
+  "name": "daniel_blog",
+  "version": "1.0.0",
+  "description": "daniel's blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel4191/daniel_blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniel4191/daniel_blog/issues"
+  },
+  "homepage": "https://github.com/daniel4191/daniel_blog#readme",
+  "devDependencies": {
+    "@netlify/plugin-linux-setup": "^1.0.0"
+  }
+}
