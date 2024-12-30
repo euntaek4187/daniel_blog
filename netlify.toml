@@ -1,4 +1,4 @@
 [build]
   command = "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput"
-  publish = "build"
+  publish = "staticfiles"
   environment = { PYTHON_VERSION = "3.10" }
