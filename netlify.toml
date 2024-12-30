@@ -1,0 +1,13 @@
+[build]
+command = "pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput && npm run build && cp -r staticfiles/* build/"
+publish = "build"
+
+
+[context.production.environment]
+PYTHON_VERSION = "3.8"
+
+[[plugins]]
+package = "@netlify/plugin-linux-setup"
+
+[build.environment]
+PYTHON_VERSION = "3.8"

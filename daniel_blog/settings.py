@@ -34,6 +34,7 @@ if os.environ.get("DJANGO_ALLOWED_HOSTS"):
 else:
     ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = ['danielblogbla.netlify.app', 'daniel4191.com']
 
 # Application definition
 
@@ -149,7 +150,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
