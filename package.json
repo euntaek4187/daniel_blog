@@ -20,10 +20,6 @@
   },
   "homepage": "https://github.com/daniel4191/daniel_blog#readme",
   "devDependencies": {
-    "netlify-cli": "^10.0.0",
-    "npm": "^10.8.2"
-  },
-  "dependencies": {
-    "@netlify/plugin-linux-setup": "^1.0.0"
+    "netlify-cli": "^10.0.0"
   }
 }

@@ -4,6 +4,3 @@
 
 [context.production.environment]
   PYTHON_VERSION = "3.10"
-
-[build.environment]
-  PYTHON_VERSION = "3.10"
