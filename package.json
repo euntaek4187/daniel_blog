@@ -4,14 +4,15 @@
   "description": "daniel's blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput && npm run build:frontend",
-    "build:frontend": "npm run build"
+    "install-deps": "npm install --no-cache",
+    "build-static": "python manage.py collectstatic --noinput",
+    "build": "npm run install-deps && npm run build-static && npm run build-frontend"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/daniel4191/daniel_blog.git"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
