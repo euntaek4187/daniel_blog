@@ -5,7 +5,7 @@
       "use": "@vercel/python"
     },
     {
-      "src": "manage.py",  // Django의 진입점 파일 (보통 manage.py)
+      "src": "manage.py",
       "use": "@vercel/python"
     }
   ],
