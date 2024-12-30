@@ -1,0 +1,18 @@
+{
+  "builds": [
+    {
+      "src": "requirements.txt",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "manage.py",  // Django의 진입점 파일 (보통 manage.py)
+      "use": "@vercel/python"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.10"
+  },
+  "scripts": {
+    "build": "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && pip install -r requirements.txt && python manage.py collectstatic --noinput"
+  }
+}
