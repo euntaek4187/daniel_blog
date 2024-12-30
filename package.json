@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput && npm run build:frontend",
-    "build:frontend": "npm run build"  // npm 빌드 관련 추가
+    "build:frontend": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/daniel4191/daniel_blog#readme",
   "devDependencies": {
-    "netlify-cli": "^10.0.0", 
+    "netlify-cli": "^10.0.0",
     "npm": "^10.8.2"
   },
   "dependencies": {
