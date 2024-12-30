@@ -4,23 +4,8 @@
   "description": "daniel's blog",
   "main": "index.js",
   "scripts": {
-    "install-deps": "npm install --no-cache",
-    "build-static": "python manage.py collectstatic --noinput",
-    "build": "npm run install-deps && npm run build-static && npm run build-frontend"
+    "build": "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/daniel4191/daniel_blog.git"
-  },
-
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/daniel4191/daniel_blog/issues"
-  },
-  "homepage": "https://github.com/daniel4191/daniel_blog#readme",
-  "devDependencies": {
-    "netlify-cli": "^10.0.0"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
