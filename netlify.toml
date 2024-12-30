@@ -1,13 +1,9 @@
 [build]
-command = "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput && npm run build"
-publish = "build"
-plugins = ["@netlify/plugin-linux-setup"]
+  command = "pip install --upgrade pip setuptools && pip install --no-cache-dir -r requirements.txt && python manage.py collectstatic --noinput && npm run build"
+  publish = "build"
 
 [context.production.environment]
-PYTHON_VERSION = "3.10"
-
-[[plugins]]
-package = "@netlify/plugin-linux-setup"
+  PYTHON_VERSION = "3.10"
 
 [build.environment]
-PYTHON_VERSION = "3.8"
+  PYTHON_VERSION = "3.10"
