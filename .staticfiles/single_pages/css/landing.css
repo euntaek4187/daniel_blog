@@ -1,0 +1,18 @@
+body {
+    background-image: url('C:\Users\danie\Desktop\django_blog\github\daniel_blog\single_pages\static\single_pages\images\meadow-5198484_1280.jpg');
+    center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    color: black;
+}
+
+section {
+    margin-bottom: 150px;
+    color: black;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.6);
+}

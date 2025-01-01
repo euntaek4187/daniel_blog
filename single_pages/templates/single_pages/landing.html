@@ -21,11 +21,14 @@
     {% include 'blog/navbar.html' %}
 
     <section>
-        <div class="container">
+        <div class="container" style="background-color: black">
             <div class="row justify-content-between">
                 <div class="col-lg-6 text-light">
-                    <h1 class="mt-5">다니엘 블로그!</h1>
-                    <p>파이썬 진영의 가장 대표적인 웹 프레임 워크 중 하나인 django</p>
+                    <h1 class="mt-5">다니엘 페이지</h1>
+                    <ul><b>개발자 소개 페이지 입니다!</b>
+                        <li>개인소개 페이지 - 약력 및 약식 포트폴리오</li>
+                        <li>블로그 - Q&A등을 포스팅</li>
+                    </ul>
                 </div>
                 <div class="col-lg-5 mt-5">
                     <h2 class="text-light">블로그 - 최근 작성된 글들</h2>
@@ -34,8 +37,7 @@
                             <h6><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">{{ post.title }}</a></h6>
                             <span class="badge badge-pill badge-light float-right">
                                 <img class="mr-1 rounded-circle" width="20px" src="{{ post.get_avatar_url }}" alt="{{ post.author }}">
-                                {{ post.author.username }}
-                                &nbsp;
+                                {{ post.author.username }}                                &nbsp;
                                 &nbsp;
                                 {{ post.created_at }}
                             </span>
