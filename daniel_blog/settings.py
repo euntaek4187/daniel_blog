@@ -49,8 +49,11 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "1").lower() in ("true", "1", "yes")
 
+"""
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() \
     if os.environ.get("DJANGO_ALLOWED_HOSTS") else ['danielblogbla.netlify.app', 'daniel4191.com', "localhost", "127.0.0.1", ".pythonanywhere.com", "172.234.85.164"]
+"""
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
