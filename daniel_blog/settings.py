@@ -47,7 +47,8 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "1").lower() in ("true", "1", "yes")
+# DEBUG = os.environ.get("DEBUG", "1").lower() in ("true", "1", "yes")
+DEBUG = False
 
 """
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() \
@@ -82,7 +83,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -90,8 +91,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "allauth.account.middleware.AccountMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware"
+    "allauth.account.middleware.AccountMiddleware"
 ]
 
 ROOT_URLCONF = "daniel_blog.urls"
@@ -117,11 +117,25 @@ WSGI_APPLICATION = "daniel_blog.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+# local databases
+"""
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": "daniel_blog_db"
+    }
+}
+"""
+
+# for publish
+hostname = os.environ['DBHOST']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ['daniel_blog'],
+        'HOST': hostname + ".postgres.database.azure.com",
+        'USER': os.environ['daniel_db'],
+        'PASSWORD': os.environ['daniel_db_password']
     }
 }
 
@@ -181,3 +195,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "_media")
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+import os
+if 'WEBSITE_HOSTNAME' in os.environ: # Running on Azure
+    from .azure import *
