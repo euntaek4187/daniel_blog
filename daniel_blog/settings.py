@@ -10,11 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import json
 import os
 
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
 
-from django.conf.global_settings import AUTHENTICATION_BACKENDS, LOGIN_REDIRECT_URL, STATICFILES_DIRS
+from django.conf.global_settings import AUTHENTICATION_BACKENDS, LOGIN_REDIRECT_URL, STATICFILES_DIRS, SECRET_KEY
+from requests.packages import package
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,13 +27,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY","django-insecure-88ndzs0z0uzko4x5f=*ngu=#h+a(k=!#ooyvt*0h+78r1n=^oy")
+import os, json
+from django.core.exceptions import ImproperlyConfigured
+
+
+secret_file = os.path.join(BASE_DIR, 'secrets.json') # secrets.json 파일 위치를 명시
+
+with open(secret_file) as f:
+    secrets = json.loads(f.read())
+
+def get_secret(setting, secrets=secrets):
+    # 비밀 변수를 가져오거나 명시적 예외를 반환한다.
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "1").lower() in ("true", "1", "yes")
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() \
-    if os.environ.get("DJANGO_ALLOWED_HOSTS") else ['danielblogbla.netlify.app', 'daniel4191.com', "localhost", "127.0.0.1", "daniel4191.pythonanywhere.com"]
+    if os.environ.get("DJANGO_ALLOWED_HOSTS") else ['danielblogbla.netlify.app', 'daniel4191.com', "localhost", "127.0.0.1", ".pythonanywhere.com", "172.234.85.164"]
 
 # Application definition
 

@@ -1,0 +1,21 @@
+name: python-django
+app: python@3.12
+options:
+  env:
+    - name: DJANGO_SECRET
+      value: 5xeuu%71e@wu=#f@^xs6fp0d$adc@c7dvk@8-gfb%0r@ynpe*-
+    - name: DJANGO_SUPERUSER_USERNAME
+      value: admin
+    - name: DJANGO_SUPERUSER_PASSWORD
+      value: admin
+    - name: daniell8282@naver.com
+      value: daniell8282@naver.com
+  ports: 8000
+  start: python3 manage.py runserver 0:8000
+  prestart: python3 manage.py makemigrations && python3 manage.py migrate &&
+    python3 manage.py createsuperuser --noinput
+context:
+  git:
+    url: https://github.com/daniel4191/daniel_blog.git
+    branch: main
+  preset: python-django

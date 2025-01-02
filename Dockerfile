@@ -1,18 +1,38 @@
-FROM python:3.11-slim
+name: Build and Push Docker Image
 
-# 필수 빌드 도구 설치
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libffi-dev \
-    libssl-dev \
-    && rm -rf /var/lib/apt/lists/*
+on:
+  push:
+    branches:
+      - main
 
-# 작업 디렉토리 설정
-WORKDIR /usr/src/app
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
 
-# 종속성 복사 및 설치
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-# 앱 복사
-COPY . .
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Get current timestamp
+      id: timestamp
+      run: echo "::set-output name=TIME::$(date +'%Y%m%d%H%M%S')"
+
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.PERSONAL_TOKEN }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: |
+          ghcr.io/${{ github.repository_owner }}/app-django:latest
+          ghcr.io/${{ github.repository_owner }}/app-django:${{ steps.timestamp.outputs.TIME }}
