@@ -1,38 +1,14 @@
-name: Build and Push Docker Image
+# Python 이미지 사용
+FROM python:3.8-slim
 
-on:
-  push:
-    branches:
-      - main
+# 작업 디렉토리 설정
+WORKDIR /app
 
-jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
+# 로컬의 코드 복사
+COPY . .
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+# 의존성 설치
+RUN pip install --no-cache-dir -r requirements.txt
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-
-    - name: Get current timestamp
-      id: timestamp
-      run: echo "::set-output name=TIME::$(date +'%Y%m%d%H%M%S')"
-
-    - name: Log in to GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.PERSONAL_TOKEN }}
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: |
-          ghcr.io/${{ github.repository_owner }}/app-django:latest
-          ghcr.io/${{ github.repository_owner }}/app-django:${{ steps.timestamp.outputs.TIME }}
+# Gunicorn 실행 명령어
+CMD ["gunicorn", "daniel_blog.wsgi:application", "--bind", "127.0.0.0:$8000"]
