@@ -1,0 +1,14 @@
+name: daniel-blog
+app: python@3.12
+options:
+  env:
+    - name: DJANGO_SECRET
+      value: django-insecure-88ndzs0z0uzko4x5f=*ngu=#h+a(k=!#ooyvt*0h+78r1n=^oy
+  ports: 8000
+  start: python3 manage.py runserver 0:8000
+  buildenv: []
+context:
+  git:
+    url: https://github.com/daniel4191/daniel_blog.git
+    branch: main
+  preset: python-django

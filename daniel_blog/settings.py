@@ -54,7 +54,8 @@ DEBUG = False
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() \
     if os.environ.get("DJANGO_ALLOWED_HOSTS") else ['danielblogbla.netlify.app', 'daniel4191.com', "localhost", "127.0.0.1", ".pythonanywhere.com", "172.234.85.164"]
 """
-ALLOWED_HOSTS = ["*"]
+# 여기서.app은 wsgi.py에서 정의된 app이다.
+ALLOWED_HOSTS = [".vercel.app"]
 
 # Application definition
 

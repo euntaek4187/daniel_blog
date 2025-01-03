@@ -1,18 +1,11 @@
 {
-  "builds": [
-    {
-      "src": "requirements.txt",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "manage.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.10"
-  },
-  "scripts": {
-    "build": "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && pip install -r requirements.txt && python manage.py collectstatic --noinput"
-  }
+  "builds": [{
+      "src": "daniel_blog/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize":  "15mb", "runtime":  "python3.12"}
+    }],
+  "routes": [{
+    "src": "/(.*)",
+    "dest": "daniel_blog.wsgi.py"
+  }]
 }
