@@ -119,15 +119,16 @@ WSGI_APPLICATION = "daniel_blog.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 # local databases
-"""
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": "daniel_blog_db"
     }
 }
-"""
 
+
+"""
 # for publish
 hostname = os.environ['DBHOST']
 DATABASES = {
@@ -139,6 +140,8 @@ DATABASES = {
         'PASSWORD': os.environ['daniel_db_password']
     }
 }
+"""
+
 
 
 # Password validation
