@@ -97,6 +97,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "daniel_blog.urls"
 
+# for vercel
+DJANGO_SETTINGS_MODULE=daniel_blog.settings
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
