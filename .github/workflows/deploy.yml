@@ -22,7 +22,7 @@ jobs:
           stage: main
           yaml: |
             name: daniel-blog
-            app: python@3.9
+            app: python@3.12
             options:
               env:
                 - name: DJANGO_SECRET
