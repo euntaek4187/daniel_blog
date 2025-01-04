@@ -1,21 +1,6 @@
 {
-  "builds": [
-    {
-      "src": "daniel_blog/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.12"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "daniel_blog.wsgi.py"
-    }
-  ],
-  "env": {
-    "DJANGO_SETTINGS_MODULE": "daniel_blog.settings"
-  }
+  "version": 2,
+  "builds": [{ "src": "daniel_blog/wsgi.py", "use": "@vercel/python" }],
+  "routes": [{ "src": "/(.*)", "dest": "daniel_blog/wsgi.py" }],
+  "env": { "DJANGO_SETTINGS_MODULE": "daniel_blog.settings" }
 }
