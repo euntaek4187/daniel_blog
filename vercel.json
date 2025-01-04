@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "daniel_blog/wsgi.py"
+      "dest": "daniel_blog.wsgi.py"
     }
   ],
   "env": {

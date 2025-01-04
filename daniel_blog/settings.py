@@ -55,7 +55,7 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() \
     if os.environ.get("DJANGO_ALLOWED_HOSTS") else ['danielblogbla.netlify.app', 'daniel4191.com', "localhost", "127.0.0.1", ".pythonanywhere.com", "172.234.85.164"]
 """
 # 여기서.app은 wsgi.py에서 정의된 app이다.
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = [".vercel.app", "daniel_blog.vercel.app", "daniel-blog-o2te.vercel.app", "*"]
 
 # Application definition
 
@@ -98,7 +98,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = "daniel_blog.urls"
 
 # for vercel
-DJANGO_SETTINGS_MODULE=daniel_blog.settings
+# DJANGO_SETTINGS_MODULE=daniel_blog.settings
 
 TEMPLATES = [
     {
