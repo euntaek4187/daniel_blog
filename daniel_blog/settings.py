@@ -20,8 +20,8 @@ from django.conf.global_settings import AUTHENTICATION_BACKENDS, LOGIN_REDIRECT_
 from requests.packages import package
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -212,7 +212,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "_media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 import os
