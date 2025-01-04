@@ -83,6 +83,16 @@ INSTALLED_APPS = [
     "daniel_blog"
 ]
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '144736340574-a4fukokks5u4jt82v4gnifkka03t0542.apps.googleusercontent.com',
+            'secret': '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',
+            'key': '',
+        }
+    }
+}
+
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.middleware.security.SecurityMiddleware",
@@ -111,6 +121,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # 'allauth.account.context_processors.account',
+                # 'allauth.socialaccount.context_processors.socialaccount'
             ],
         },
     },
