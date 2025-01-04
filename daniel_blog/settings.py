@@ -48,7 +48,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG", "1").lower() in ("true", "1", "yes")
-DEBUG = False
+DEBUG = True
 
 """
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", '').split() \
@@ -113,7 +113,7 @@ ROOT_URLCONF = "daniel_blog.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates/"],
+        "DIRS": [os.path.join(BASE_DIR, "templates/")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
